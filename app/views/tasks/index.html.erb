@@ -1,0 +1,17 @@
+<h1 class="fs-2 my-4" >List of Tasks 📝</h1>
+<ul class="list-group d-flex p-2">
+  <% @tasks.each do |task| %>
+    <li class="list-group-item">
+      <% if task.completed? %>
+        <i class="fa-regular fa-square-check me-2"></i>
+      <% else %>
+        <i class="fa-regular fa-square me-2"></i>
+      <% end %>
+      <%= link_to task.title, task_path(task), class: "text-decoration-none text-black fs-5" %>
+    </li>
+  <% end %>
+</ul>
+
+<button type="button" class="btn btn-primary my-4">
+<i class="fa-solid fa-plus me-2"></i><%= link_to "New Task", new_task_path, class: "text-decoration-none text-white" %>
+</button>
